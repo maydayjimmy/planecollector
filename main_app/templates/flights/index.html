@@ -1,0 +1,19 @@
+{% extends 'base.html' %} {% block content %}
+
+<h1>Flight List</h1>
+
+{% for flight in flights %}
+<div class="card">
+  <a href="{% url 'detail' flight.id %}">
+    <div class="card-content">
+      <span class="card-title">{{ flight.airline }}</span>
+      <p>Flight Number: {{ flight.number }}</p>
+      {% if flight.duration > 1 %}
+      <p>Duration: {{ flight.duration }} hours</p>
+      {% else %}
+      <p>Duration: Less than 1 hour</p>
+      {% endif %}
+    </div>
+  </a>
+</div>
+{% endfor %} {% endblock %}

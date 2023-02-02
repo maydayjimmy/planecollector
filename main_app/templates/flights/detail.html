@@ -1,0 +1,17 @@
+{% extends 'base.html' %} {% block content %}
+
+<h1>Flight Details</h1>
+
+<div class="card">
+    <div class="card-content">
+        <span class="card-title">{{ flight.airline }}</span>
+        <p>Flight Number: {{ flight.number }}</p>
+        {% if flight.duration > 1 %}
+        <p>Duration: {{ flight.duration }} hours</p>
+        {% else %}
+        <p>Duration: Less than 1 hour</p>
+        {% endif %}
+    </div>
+</div>
+
+{% endblock %}
