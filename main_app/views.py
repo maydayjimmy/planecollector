@@ -1,5 +1,6 @@
 from django.shortcuts import render
 from .models import Flight
+from django.views.generic.edit import CreateView, DeleteView, UpdateView
 
 # Add the following import
 from django.http import HttpResponse
@@ -30,3 +31,16 @@ def flights_index(request):
 def flights_detail(request, flight_id):
   flight = Flight.objects.get(id=flight_id)
   return render(request, 'flights/detail.html', { 'flight': flight })
+
+class FlightCreate(CreateView): # class based view
+  model = Flight
+  fields = ('route', 'airline', 'aircraft', 'number','duration')
+  success_url = '/flights/'
+
+class FlightUpdate(UpdateView): # class based view
+  model = Flight
+  fields = ('route', 'airline', 'aircraft', 'number','duration')
+  
+class FlightDelete(DeleteView): # class based view
+  model = Flight
+  success_url= '/flights/'

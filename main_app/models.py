@@ -1,4 +1,5 @@
 from django.db import models
+from django.urls import reverse
 
 # Create your models here.
 
@@ -11,3 +12,6 @@ class Flight(models.Model):
 
     def __str__(self):
         return self.route
+
+    def get_absolute_url(self):
+        return reverse("detail", kwargs={'flight_id': self.id})

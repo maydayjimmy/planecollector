@@ -12,6 +12,10 @@
         <p>Duration: Less than 1 hour</p>
         {% endif %}
     </div>
+    <div class="card-action">
+        <a href="{% url 'flights_update' flight.id %}">Edit</a>
+        <a href="{% url 'flights_delete' flight.id %}">Delete</a>
+    </div>
 </div>
 
 {% endblock %}
