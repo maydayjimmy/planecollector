@@ -11,6 +11,7 @@
       href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css"
     />
     <link rel="stylesheet" type="text/css" href="{% static 'css/style.css' %}" />
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
   </head>
   <body>
     <header class="navbar-fixed">
@@ -23,8 +24,16 @@
           </ul>
           <ul class="right">
             <li><a href="/about">About</a></li>
+            {% if user.is_authenticated %}
             <li><a href="{% url 'flights_create' %}">Add a Flight</a></li>
             <li><a href="/flights">View All My Flights</a></li>
+            <li><a href="{% url 'sub_create' %}">Add a Substitute</a></li>
+            <li><a href="{% url 'sub_index' %}">View All Flight Substitutes</a></li>
+            <li><a href="{% url 'logout' %}">Log Out</a></li>
+            {% else %}
+            <li><a href="{% url 'signup' %}">Sign Up</a></li>
+            <li><a href="{% url 'login' %}">Log In</a></li>
+            {% endif %}
           </ul>
         </div>
       </nav>

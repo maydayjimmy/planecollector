@@ -1,0 +1,15 @@
+{% extends 'base.html' %} {% block content %}
+
+<h1>Substitute List</h1>
+{% comment %} use "sub" to reference properties instead of "objects" {% endcomment %}
+{% for sub in object_list %}
+<a href="{% url 'sub_detail' sub.id %}"> 
+<div class="card">
+    <div class="card-content">
+      <span class="card-title">
+        {{ sub.aircraft }} - Capacity: {{sub.capacity}} passengers
+      </span>
+    </div>
+  </a>
+</div>
+{% endfor %} {% endblock %}

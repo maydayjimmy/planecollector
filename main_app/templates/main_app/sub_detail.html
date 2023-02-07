@@ -1,0 +1,18 @@
+{% extends 'base.html' %} {% block content %}
+
+<h1>Substitute Details</h1>
+{% comment %} Must access objects using "object" not "sub" {% endcomment %}
+<div class="card">
+    <div class="card-content">
+        <span class="card-title">
+            {{ object.aircraft }} - Capacity: {{object.capacity}} passengers
+        </span>
+    </div>
+    <div class="card-action">
+        <a href="{% url 'sub_update' object.id %}">Edit</a>
+        <a href="{% url 'sub_delete' object.id %}">Delete</a>
+    </div>
+</div>    
+
+
+{% endblock %}
